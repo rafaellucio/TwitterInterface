@@ -1,58 +1,38 @@
 package app;
 
-
-import java.util.*;
-
-import twitter.TwitterDef;
-import twitter4j.*;
-
 /**
  * 20160519-AtividadeFinal-Twitter / FrontEnd.java
  * FIAP / RM30222 - Vagner Panarello
  */
 public class FrontEnd {
 	
+	static TwitterQueries fe;
+	
 	
 	public static void main(String[] args) {
 		
-		TwitterDef t = new TwitterDef();
+		fe = new TwitterQueries();
 		
+//		fe.getTimelineTweets();
 		
-try {
-			
-			Query query = new Query("java");
-			query.setSince("2016-05-08");
-			query.setUntil("2016-05-14");
-			QueryResult result;
-			int contador=0;
-			List<Usuarios> usuarios = new ArrayList<>();
-			result = t.getTweet().search(query);
-			while (result.hasNext())
-			{
-				query = result.nextQuery();
-				for (Status status : result.getTweets()) {
-					contador++;
-					//System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+		fe.getLastWeekTweets("SegaSaturn");
+		
+		System.out.println("Resultados retornados: " + fe.getQueryResult().size());
+		System.out.printf("Pesquisas feitas: %d (máximo: %d) %n%n%n: ", fe.getLimit() - fe.getRemaining(), fe.getLimit());
+		
+		for (Tweet t : fe.getQueryResult()) {
+			System.out.printf("@%s > %s > %s %n",
+					t.getCreatedAt(),
+					t.getScreenName(),
+					t.getBodyText());
 					
-					Usuarios usuario =  new Usuarios(status.getUser().getScreenName(), status.getText(), status.getCreatedAt());
-					usuarios.add(usuario);
-					//System.out.println("Número de Favoritos: " + status.getFavoriteCount());
-					//System.out.println("Lugar: " + status.getPlace());
-					//System.out.println("Número de Retweets: " + status.getRetweetCount());
-
-				}
-				result = t.getTweet().search(query);
-			}
-			
-			usuarios.sort();
-			
-			System.out.println("Tag java:"+contador+" tweets");
-			
-		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.printf("F: %b, R: %b, Rd: %b, RbyMe: %b %n%n%n",
+					t.isFavorited(),
+					t.isRetweet(),
+					t.isRetweeted(),
+					t.isRetweetedByMe()
+					);
+						
 		}
-		
-		
 	}
-
 }
