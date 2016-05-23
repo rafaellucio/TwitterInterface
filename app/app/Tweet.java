@@ -9,7 +9,7 @@ import java.util.Date;
  * 20160519-AtividadeFinal-Twitter / Tweet.java
  * FIAP / RM30222 - Vagner Panarello
  */
-public class Tweet {
+public class Tweet implements Comparable<Tweet> {
 	
 	private Date createdAt;
 	private String screenName;
@@ -58,5 +58,15 @@ public class Tweet {
 
 	public boolean isFavorited() {
 		return Favorited;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	@Override
+	public int compareTo(Tweet o) {
+		
+		return Comparators.NAME_A_TO_Z.compare(this, o);
+
 	}
 }

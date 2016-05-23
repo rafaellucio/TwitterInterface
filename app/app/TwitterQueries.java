@@ -21,6 +21,8 @@ public class TwitterQueries {
 	private List<Tweet> queryResult;
 	private TwitterDef twitterApi;
 	
+	
+	
 	private int limit, remaining;
 
 	public TwitterQueries() {
@@ -144,14 +146,22 @@ public class TwitterQueries {
 		
 		case DATE_NEW_TO_OLD:
 			
+			Collections.sort(this.queryResult, Comparators.DATE_NEW_TO_OLD);
+			
 			break;
 		case DATE_OLD_TO_NEW:
+			
+			Collections.sort(this.queryResult, Comparators.DATE_OLD_TO_NEW);
 			
 			break;
 		case NAME_A_TO_Z:
 			
+			Collections.sort(this.queryResult, Comparators.NAME_A_TO_Z);
+			
 			break;	
 		case NAME_Z_TO_A:
+			
+			Collections.sort(this.queryResult, Comparators.NAME_Z_TO_A);
 		
 		
 		}
