@@ -3,9 +3,9 @@
  */
 package app;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.time.*;
+import java.util.*;
+
 
 import twitter.TwitterDef;
 import twitter4j.*;
@@ -15,6 +15,8 @@ import twitter4j.*;
  * FIAP / RM30222 - Vagner Panarello
  */
 public class TwitterQueries {
+	
+
 	
 	private List<Tweet> queryResult;
 	private TwitterDef twitterApi;
@@ -58,120 +60,110 @@ public class TwitterQueries {
         }	
 	}
 	
+	public enum TweetType {
+		ALL,
+		RETWEET,
+		RETWEETED,
+		RETWEETEDBYME,
+		FAVORITED;
+	}
+	
+	
 	public List<Tweet> getQueryResult() {
+		return this.getQueryResult(TweetType.ALL);
+	}
+	
+	/* (non-Javadoc)
+	 * @see app.Twitter#getQueryResult()
+	 */
+
+	public List<Tweet> getQueryResult(TweetType tweetType) {
+		
+		List<Tweet> queryResult =  new ArrayList<>();
+		
+		
+		switch(tweetType){
+		case FAVORITED:
+			
+			for (Tweet tweet : this.queryResult) {
+				if(tweet.isFavorited()) queryResult.add(tweet);
+			}
+			break;
+			
+		case RETWEET:
+			for (Tweet tweet : this.queryResult) {
+				if(tweet.isRetweet()) queryResult.add(tweet);
+			}
+			break;
+			
+		case RETWEETED:
+			for (Tweet tweet : this.queryResult) {
+				if(tweet.isRetweeted()) queryResult.add(tweet);
+			}
+			break;
+			
+		case RETWEETEDBYME:
+			for (Tweet tweet : this.queryResult) {
+				if(tweet.isRetweetedByMe()) queryResult.add(tweet);
+			}
+			break;
+			
+		case ALL:
+			for (Tweet tweet : this.queryResult) {
+				queryResult.add(tweet);
+			}
+		}
+		
 		return queryResult;
 	}
+
+	
+	public void getTweets(String hashTag) {
+		doQuery(new Query(hashTag));
+	}
+	
+
+	public void getTweets(String hashTag, LocalDate since) {
+		Query query = new Query(hashTag);
+		query.since(since.toString());
+		this.doQuery(query);	
+	}
+	
+	
+	public enum SortTweetsBy {
+		DATE_NEW_TO_OLD,
+		DATE_OLD_TO_NEW,
+		NAME_A_TO_Z,
+		NAME_Z_TO_A;
+	}
+	
+	
+	public void sortTweets(SortTweetsBy sortTweetsBy){
+		
+		switch(sortTweetsBy){
+		
+		case DATE_NEW_TO_OLD:
+			
+			break;
+		case DATE_OLD_TO_NEW:
+			
+			break;
+		case NAME_A_TO_Z:
+			
+			break;	
+		case NAME_Z_TO_A:
+		
+		
+		}
+	}
+	
+	
 	public int getLimit() {
 		return limit;
 	}
+
 	public int getRemaining() {
 		return remaining;
 	}
-
-
-
-	/**
-	 * Retorna a quantidade de Tweets por dia na última semana
-	 * mensionando deteminada Hashtag
-	 * Essa chamada pode ser feita somente 15 vezes a cada 15 minutos
-	 * <p>
-	 * @param  hashTag  Twitter hashTag text without "#" character
-	 * @return      void
-	 */
-	
-	public void getLastWeekTweets(String hashTag) {
-		doQuery(new Query(hashTag));
 		
-	}
-	
-
-	public void getLastWeekReTweets(String hashTag){
-		
-		
-		
-		
-	}
-	
-	public void getLastWeekFavorites(String hashTag){
-		
-		
-		
-		
-	}
-	
-	public void sortTweets(String authorName){
-		
-		
-		
-		
-	}
-	
-	public void sortTweets(Date beginDate, Date endDate){
-		
-		
-		
-		
-		
-		
-	}
-	
-	
-	
-	public void getTimelineTweets(){
-		
-		try {
-			List<Status> st = twitterApi.getTweet().getHomeTimeline();
-			
-			for (Status status : st) {
-				System.out.println(status.getUser().getName() + ": " + status.getText());
-			}
-			
-			
-		} catch (TwitterException e) {
-			System.out.println("Erro com Twitter API: " + e.getMessage());
-		}
-	}
-		
-		
-		
-	
-		
-		
-		
-//		public void getQuery(){
-//
-//			try {	
-//
-//				Query query = new Query("java");
-//				query.setSince("2016-05-08");
-//				query.setUntil("2016-05-14");
-//				QueryResult result;
-//				int contador=0;
-//				List<Usuarios> usuarios = new ArrayList<>();
-//				result = twitterApi.getTweet().search(query);
-//				while (result.hasNext())
-//				{
-//					query = result.nextQuery();
-//					for (Status status : result.getTweets()) {
-//						contador++;
-//						//System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
-//
-//						Usuarios usuario =  new Usuarios(status.getUser().getScreenName(), status.getText(), status.getCreatedAt());
-//						usuarios.add(usuario);
-//						//System.out.println("Número de Favoritos: " + status.getFavoriteCount());
-//						//System.out.println("Lugar: " + status.getPlace());
-//						//System.out.println("Número de Retweets: " + status.getRetweetCount());
-//
-//					}
-//					result = twitterApi.getTweet().search(query);
-//				}
-//
-//				//						usuarios.sort();
-//
-//				System.out.println("Tag java:"+contador+" tweets");
-//
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
 }
