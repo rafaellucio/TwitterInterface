@@ -19,7 +19,7 @@ public class FrontEnd {
 		tq = new TwitterQueries();
 		
 		/* Noma da Hashtag da pesquisa, data definida para uma semana atrás   */
-		tq.getTweets("SegaSaturn", LocalDate.now().minusWeeks(1));
+		tq.getTweets("java8", LocalDate.now().minusWeeks(1));
 		
 		/* Mostra estado do servidor Twitter que permite uma quantidade limitada de Queries a cada 15 minutos   */
 		System.out.println("Resultados retornados do servidor Twitter: " + tq.getQueryResult().size());
