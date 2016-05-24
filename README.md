@@ -15,7 +15,7 @@
 Método ordena a lista interna de objetos Tweet de acordo com o critério selecionado em seu argumento. Por definição este método deve ser chamado antes do método 'getQueryResult(TweetType)' para se obter um resultado ordenado como se deseja.
 ```
 As opções de ordenamento são:
-*SortTweetsBy.DATE_NEW_TO_OLD* -> Ordena tweets por data mais novas no menores índices da lista
+_SortTweetsBy.DATE_NEW_TO_OLD_ -> Ordena tweets por data mais novas no menores índices da lista
 *SortTweetsBy.DATE_OLD_TO_NEW* -> Ordena tweets por data mais antigas no menores índices da lista
 *SortTweetsBy.NAME_A_TO_Z*	  -> Ordena tweets em ordem alfabética pelo 'ScreenName' comecando nos menores índices
 *SortTweetsBy.NAME_Z_TO_A*	  -> Ordena tweets em ordem alfabética pelo 'ScreenName' comecando nos maiores índices
