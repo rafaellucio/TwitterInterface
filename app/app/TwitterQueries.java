@@ -22,7 +22,6 @@ public class TwitterQueries {
 	private TwitterDef twitterApi;
 	
 	
-	
 	private int limit, remaining;
 
 	public TwitterQueries() {
@@ -32,6 +31,8 @@ public class TwitterQueries {
 	}
 	private void doQuery(Query query){
 		
+		
+		
 		try {
             QueryResult result;
             do {
@@ -39,10 +40,11 @@ public class TwitterQueries {
                 List<Status> tweets = result.getTweets();
                 
                 for (Status tweet : tweets) {
-                	
+         	
                 	queryResult.add(new Tweet(
                 			tweet.getCreatedAt(),
                 			tweet.getUser().getScreenName(),
+                			tweet.getUser().getName(),
                 			tweet.getText(),
                 			tweet.isRetweet(),
                 			tweet.isRetweeted(),

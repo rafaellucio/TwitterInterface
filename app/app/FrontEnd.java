@@ -30,13 +30,9 @@ public class FrontEnd {
 		
 		
 		/* Inicia um menu de comando via console para manipular opções do API  */
-		commandMenu();
-		
+		commandMenu();		
 		}
 
-	
-	
-	
 	public static void commandMenu(){
 				
 		printHelp();
@@ -78,6 +74,7 @@ public class FrontEnd {
 				break;
 			case "sair":
 				exit = false;
+				keyboard.close();
 			}
 		} while (exit);
 		
@@ -111,8 +108,9 @@ public class FrontEnd {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yy - hh:mm");
 		
 		for (Tweet t : queryResult) {
-			System.out.printf("@%s | %s |%n%s%n",
+			System.out.printf("@%s | %s | %s |%n%s%n",
 					t.getScreenName(),
+					t.getUserName(),
 					df.format(t.getCreatedAt()),
 					t.getBodyText()
 					);

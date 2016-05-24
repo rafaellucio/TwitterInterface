@@ -14,22 +14,32 @@ public class Tweet implements Comparable<Tweet> {
 	private Date createdAt;
 	private String screenName;
 	private String bodyText;
+	private String userName;
 	
 	private boolean retweet;
 	private boolean Retweeted;
 	private boolean RetweetedByMe;
 	private boolean Favorited;
 	
-	public Tweet(Date createdAt, String screenName, String bodyText, boolean retweet, boolean retweeted,
+	public Tweet(Date createdAt, String screenName, String userName, String bodyText, boolean retweet, boolean retweeted,
 			boolean retweetedByMe, boolean favorited) {
 		super();
 		this.createdAt = createdAt;
 		this.screenName = screenName;
+		this.userName = userName;
 		this.bodyText = bodyText;
 		this.retweet = retweet;
 		Retweeted = retweeted;
 		RetweetedByMe = retweetedByMe;
 		Favorited = favorited;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public Date getCreatedAt() {
