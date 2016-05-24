@@ -5,8 +5,8 @@
 - Classe __TwitterDef.java__  inicia a API executa as autenticações e retorna a instância do Twitter4j
 
 ###### Package 'app'
-- Classe __Tweet__ é instanciada com o objeto de cada tweet retornado na pesquisa. Seus atributos contem a menor célula de informações.
-- Classe __TwitterQueries__ contém todos os mecanismos para realizar a pesquisa e organizar as instâncias da classe 'Tweet' em uma lista. Seus métodos ordenam essa lista e também filtram.
+- Classe __Tweet__ é instanciada com o objeto de cada tweet retornado na pesquisa. Seus atributos contem a menor célula de informações dos tweets retornados na pesquisa.
+- Classe __TwitterQueries__ contém todos os mecanismos para realizar a pesquisa e organizar as instâncias da classe 'Tweet' em uma lista. Seus métodos ordenam essa lista e também a filtram.
 
 ###### Classe métodos TwitterQueries
 
