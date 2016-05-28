@@ -1,13 +1,13 @@
 /**
  * 
  */
-package twitter;
+package app.twitter;
 
 /**
  * 20160519-AtividadeFinal-Twitter / TwetterAuth.java
  * FIAP / RM30222 - Vagner Panarello
  */
-public enum TwetterAuth {
+public enum TwitterAuth {
 	
 	/* Insert here your personal "Consumer Key (API Key)" from Twitter */
 	API_KEY("xxx"),
@@ -29,7 +29,7 @@ public enum TwetterAuth {
 	/**
 	 * @param arg0
 	 */
-	private TwetterAuth(String key) {
+	private TwitterAuth(String key) {
 		this.key = key;
 	}
 

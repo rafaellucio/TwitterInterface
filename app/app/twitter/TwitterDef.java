@@ -1,11 +1,10 @@
 /**
  * 
  */
-package twitter;
+package app.twitter;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;
-import twitter4j.User;
 import twitter4j.auth.AccessToken;
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -26,11 +25,11 @@ public class TwitterDef {
 		super();
 		 b = new ConfigurationBuilder();
 		 
-		 b.setOAuthConsumerKey(TwetterAuth_vpanarello.API_KEY.getKey());
-		 b.setOAuthConsumerSecret(TwetterAuth_vpanarello.API_SECRET.getKey());
+		 b.setOAuthConsumerKey(TwitterAuth.API_KEY.getKey());
+		 b.setOAuthConsumerSecret(TwitterAuth.API_SECRET.getKey());
 		 
 		 factory = new TwitterFactory(b.build());
-		 act = new AccessToken(TwetterAuth_vpanarello.ACCESS_TOKEN.getKey(), TwetterAuth_vpanarello.ACCESS_TOKEN_SECRET.getKey());
+		 act = new AccessToken(TwitterAuth.ACCESS_TOKEN.getKey(), TwitterAuth.ACCESS_TOKEN_SECRET.getKey());
 		 
 		 tweet = factory.getInstance(act);
 		
