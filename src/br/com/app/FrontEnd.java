@@ -1,9 +1,9 @@
-package app;
+package br.com.app;
 
 import java.time.LocalDate;
 
-import app.twitter.TwitterQueries;
-import app.utils.CommandMenu;
+import br.com.app.twitter.TwitterQueries;
+import br.com.app.utils.CommandMenu;
 
 /**
  * 20160519-AtividadeFinal-Twitter / FrontEnd.java

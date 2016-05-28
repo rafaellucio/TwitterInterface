@@ -1,9 +1,10 @@
-package app.utils;
+package br.com.app.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import app.twitter.Twitter;
+import br.com.app.twitter.Twitter;
+
 
 public class PrintQueryTwitterResult {
 	

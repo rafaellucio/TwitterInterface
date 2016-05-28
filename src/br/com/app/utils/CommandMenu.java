@@ -1,10 +1,10 @@
-package app.utils;
+package br.com.app.utils;
 
 import java.util.Scanner;
 
-import app.twitter.TwitterSortBy;
-import app.twitter.TwitterType;
-import app.twitter.TwitterQueries;
+import br.com.app.twitter.TwitterQueries;
+import br.com.app.twitter.TwitterSortBy;
+import br.com.app.twitter.TwitterType;
 
 public class CommandMenu {
 	
