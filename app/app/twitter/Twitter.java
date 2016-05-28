@@ -1,15 +1,13 @@
-/**
- * 
- */
-package app;
+package app.twitter;
 
 import java.util.Date;
 
 /**
  * 20160519-AtividadeFinal-Twitter / Tweet.java
  * FIAP / RM30222 - Vagner Panarello
+ * FIAP / RM30318 - Rafael Antonio Lucio
  */
-public class Tweet implements Comparable<Tweet> {
+public class Twitter implements Comparable<Twitter> {
 	
 	private Date createdAt;
 	private String screenName;
@@ -17,21 +15,27 @@ public class Tweet implements Comparable<Tweet> {
 	private String userName;
 	
 	private boolean retweet;
-	private boolean Retweeted;
-	private boolean RetweetedByMe;
-	private boolean Favorited;
+	private boolean retweeted;
+	private boolean retweetedByMe;
+	private boolean favorited;
 	
-	public Tweet(Date createdAt, String screenName, String userName, String bodyText, boolean retweet, boolean retweeted,
-			boolean retweetedByMe, boolean favorited) {
+	public Twitter(Date createdAt, 
+			String screenName, 
+			String userName, 
+			String bodyText, 
+			boolean retweet, 
+			boolean retweeted,
+			boolean retweetedByMe, 
+			boolean favorited) {
 		super();
 		this.createdAt = createdAt;
 		this.screenName = screenName;
 		this.userName = userName;
 		this.bodyText = bodyText;
 		this.retweet = retweet;
-		Retweeted = retweeted;
-		RetweetedByMe = retweetedByMe;
-		Favorited = favorited;
+		this.retweeted = retweeted;
+		this.retweetedByMe = retweetedByMe;
+		this.favorited = favorited;
 	}
 
 	public String getUserName() {
@@ -59,24 +63,24 @@ public class Tweet implements Comparable<Tweet> {
 	}
 
 	public boolean isRetweeted() {
-		return Retweeted;
+		return retweeted;
 	}
 
 	public boolean isRetweetedByMe() {
-		return RetweetedByMe;
+		return retweetedByMe;
 	}
 
 	public boolean isFavorited() {
-		return Favorited;
+		return favorited;
 	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override
-	public int compareTo(Tweet o) {
+	public int compareTo(Twitter o) {
 		
-		return Comparators.NAME_A_TO_Z.compare(this, o);
+		return TwitterComparators.NAME_A_TO_Z.compare(this, o);
 
 	}
 }
