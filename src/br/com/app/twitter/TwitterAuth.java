@@ -1,7 +1,7 @@
 /**
  * 
  */
-package app.twitter;
+package br.com.app.twitter;
 
 /**
  * 20160519-AtividadeFinal-Twitter / TwetterAuth.java

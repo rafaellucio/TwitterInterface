@@ -1,7 +1,7 @@
 /**
  * 
  */
-package app.twitter;
+package br.com.app.twitter;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterFactory;

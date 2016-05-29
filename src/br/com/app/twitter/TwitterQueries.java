@@ -1,12 +1,14 @@
-/**
- * 
- */
-package app.twitter;
+package br.com.app.twitter;
 
-import java.time.*;
-import java.util.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import twitter4j.*;
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.Status;
+import twitter4j.TwitterException;
 
 /**
  * 20160519-AtividadeFinal-Twitter / FrontEndFunctions.java

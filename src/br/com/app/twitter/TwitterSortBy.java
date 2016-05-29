@@ -1,4 +1,4 @@
-package app.twitter;
+package br.com.app.twitter;
 
 public enum TwitterSortBy {
 	DATE_NEW_TO_OLD,
