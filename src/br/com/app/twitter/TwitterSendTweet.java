@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import twitter4j.Status;
 import twitter4j.Twitter;
+import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.conf.Configuration;
@@ -16,7 +17,7 @@ import twitter4j.conf.ConfigurationBuilder;
 
 public class TwitterSendTweet {
 	
-	public static void sendMessage(String message) throws Exception {
+	public static void sendMessage(String message) {
 		ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
 		
 		configurationBuilder
@@ -31,9 +32,15 @@ public class TwitterSendTweet {
 		AccessToken accessToken = accessToken();
 		
 		twitter.setOAuthAccessToken(accessToken);
-		Status status = twitter.updateStatus(message);
+		Status status;
 		
-		JOptionPane.showMessageDialog(null, "Tweet postado com sucesso! [" + status.getText() + "]");
+		try {
+			status = twitter.updateStatus(message);
+			JOptionPane.showMessageDialog(null, "Tweet postado com sucesso! [" + status.getText() + "]");
+		} catch (TwitterException e) {
+			JOptionPane.showMessageDialog(null, "Não foi possível enviar o tweet");
+			e.printStackTrace();
+		}
 	}
 	
 	public static AccessToken accessToken() {
