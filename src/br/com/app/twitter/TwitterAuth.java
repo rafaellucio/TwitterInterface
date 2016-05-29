@@ -10,19 +10,19 @@ package br.com.app.twitter;
 public enum TwitterAuth {
 	
 	/* Insert here your personal "Consumer Key (API Key)" from Twitter */
-	API_KEY("FKSv1DWiDqoJYoWNqwWfbUazr"),
+	API_KEY("xxx"),
 	/* Insert here your personal "Consumer Secret (API Secret)" from Twitter */
-	API_SECRET("3Syknhy2Poa5xtQEWzT0PytrCgGMK59wHdTMBbIdV3JvzU7Ezw"),
+	API_SECRET("xxx"),
 	/* Insert here your personal "Access Token" from Twitter */
-	ACCESS_TOKEN("250292496-RLoOlbfBDwnlbFFxpYFMfOS5bXHm2Gm0B1WCXeJg"),
+	ACCESS_TOKEN("xxx"),
 	/* Insert here your personal "Access Token Secret" from Twitter */
-	ACCESS_TOKEN_SECRET("jtQ0vppmQB5tDzkMYXSvILXrKg8LOBVM4i1pI28ha0a9a"),
+	ACCESS_TOKEN_SECRET("xxx"),
 	
 	
 	/* Insert here your name "Owner"  from Twitter */
-	OWNER("RafaelKtbhs"),
+	OWNER("xxx"),
 	/* Insert here your "Owner ID" from Twitter */
-	OWNER_ID("250292496");
+	OWNER_ID("xxx");
 	
 	private String key;
 
