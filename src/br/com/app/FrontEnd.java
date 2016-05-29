@@ -29,6 +29,6 @@ public class FrontEnd {
 		);
 				
 		/* Inicia um menu de comando via console para manipular opções do API  */
-		CommandMenu.commandMenu(tq);		
+		CommandMenu.commandMenu(tq);
 	}
 }
